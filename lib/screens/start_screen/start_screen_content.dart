@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter_quiz/shared_widgets/custom_outline_button.dart';
 
 class StartScreenContent extends StatelessWidget {
-  const StartScreenContent({super.key});
+  final VoidCallback onPressed;
 
-  void _startButtonPress() {
-    print('start');
-  }
+  const StartScreenContent(this.onPressed, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,25 +15,26 @@ class StartScreenContent extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/quiz-logo.png',
-          width: 200,
+          width: 300,
         ),
         const SizedBox(
-          height: 25,
+          height: 80,
         ),
-        const Text(
+        Text(
           'Flutter Quiz',
-          style: TextStyle(
+          style: GoogleFonts.raleway(
             fontSize: 28,
             fontWeight: FontWeight.w700,
             color: Colors.white,
           ),
         ),
         const SizedBox(
-          height: 25,
+          height: 80,
         ),
         CustomOutlineButton(
           label: 'Start Quiz',
-          onPressed: _startButtonPress,
+          icon: Icons.arrow_right_alt_outlined,
+          onPressed: onPressed,
         )
       ],
     );
